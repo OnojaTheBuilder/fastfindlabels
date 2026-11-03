@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import { C } from '../data/content.js';
+const g = C.guide;
+---
+<Base title="Lost phone guide" desc="What to do first when you lose your phone, and how to set up Find My or Find Hub before it happens.">
+<section class="pagehead"><h1 class="head" data-split>{g.title}</h1><p class="sub" data-r>{g.intro}</p></section>
+<section class="gd">
+<article data-r><h2>{g.first.h}</h2><ol>{g.first.steps.map((s) => <li>{s}</li>)}</ol></article>
+<article data-r><h2>{g.both.h}</h2><p>{g.both.p}</p></article>
+<article data-r><h2>{g.trust.h}</h2><p>{g.trust.p}</p></article>
+<article data-r><h2>{g.prep.h}</h2><ul>{g.prep.items.map((s) => <li>{s}</li>)}</ul></article>
+<p class="src" data-r>Sources: {g.sources.map(([n, u]) => <a href={u} target="_blank" rel="noopener">{n}</a>)}</p>
+</section>
+</Base>

@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import { C } from '../data/content.js';
+const c = C.contact;
+---
+<Base title="Contact" desc="Questions about an order or a label? Get in touch with Fast Find Label.">
+<section class="pagehead"><h1 class="head" data-split>{c.title}</h1><p class="sub" data-r>{c.p}</p>
+<div class="row" data-r><a class="btn mag" href={`mailto:${c.email}`}>{c.email}</a></div><p class="sub" data-r>{c.hours}</p></section>
+</Base>

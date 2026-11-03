@@ -1,0 +1,8 @@
+---
+import Base from '../layouts/Base.astro';
+import { C } from '../data/content.js';
+---
+<Base title="FAQ" desc="Answers about Fast Find Label: where it goes, whose number is printed, shipping and payment.">
+<section class="pagehead"><h1 class="head" data-split>{C.faq.title}</h1>
+<div style="margin-top:2rem">{C.faq.items.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}</div></section>
+</Base>

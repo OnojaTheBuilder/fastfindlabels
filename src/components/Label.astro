@@ -1,0 +1,5 @@
+---
+import { C } from '../data/content.js';
+const { n } = Astro.props;
+---
+<div class="label"><b>{C.label.l1}</b><span class="num">{n || C.label.ph}</span><i>{C.label.l2}</i><small>{C.label.l3}</small></div>
