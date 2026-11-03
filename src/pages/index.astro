@@ -2,19 +2,28 @@
 import Base from '../layouts/Base.astro';
 import Label from '../components/Label.astro';
 import { C } from '../data/content.js';
-const h = C.home, a = C.atlas;
+const h = C.home, a = C.atlas, s = C.shop, w = C.show;
 const D = 'M60 40C250 40 270 130 150 160S30 230 150 260S280 320 200 360S110 395 130 400';
 ---
-<Base title={C.brand} desc="A tiny label with a trusted person's number brings lost phones home. Follow a day on the map.">
+<Base title={C.brand} desc="Tiny thermal-printed labels with a trusted person's number bring lost phones home. From $12 for 2 labels.">
 <section class="hero"><h1 class="big" data-split>{h.title}</h1><p class="sub" data-r>{h.sub}</p>
-<div class="row" data-r><a class="btn mag" href="/order/">{h.cta}</a><a class="btn ghost mag" href="/guide/">{h.cta2}</a></div>
+<div class="row" data-r><a class="btn mag" href="#shop">{h.cta}</a><a class="btn ghost mag" href="#label">{h.cta2}</a></div>
 <div class="play" id="play"><div class="phone"><div class="cam"></div><div class="scr" aria-live="polite">{h.lost}</div><div class="slot"></div></div>
 <div class="drag" id="drag" tabindex="0" role="button" aria-label={`${h.hint} Press Enter to stick it.`}><Label n={h.demo} /></div><p class="hint">{h.hint}</p></div></section>
+<ul class="strip">{C.trust.map((t) => <li>{t}</li>)}</ul>
+<section class="show" id="label"><div><h2 class="head" data-split>{w.h}</h2><p class="sub" data-r>{w.p}</p><ul class="calls" data-r>{w.calls.map((t) => <li>{t}</li>)}</ul><a class="btn mag" href="#shop">{h.cta}</a></div>
+<div class="mocks"><figure class="mk"><div class="phone sm"><div class="cam"></div><div class="onit"><Label n={h.demo} /></div></div><figcaption>{w.back}</figcaption></figure>
+<figure class="mk"><div class="case"><i></i><i></i><div class="onit"><Label n={h.demo} /></div></div><figcaption>{w.case}</figcaption></figure></div></section>
+<section class="shopw" id="shop"><h2 class="head" data-split>{s.h}</h2><p class="sub" data-r>{s.p}</p>
+<form id="qf" class="qf"><div class="packs">{C.price.map((p, i) => <label class="pc"><input type="radio" name="pack" value={i} checked={i === 1} /><span class="pcb"><b>{p.q} labels</b><em>${p.p}</em><small>${(p.p / p.q).toFixed(2)} {s.per}</small>{p.tag && <i>{p.tag}</i>}</span></label>)}</div>
+<div class="qrow"><label class="f">{s.ph}<input id="qt" type="tel" inputmode="tel" placeholder="(555) 010-2030" autocomplete="off" /><small class="h">{s.hint}</small></label><div id="qprev"><Label /></div></div>
+<button class="btn mag" type="submit">{s.btn}</button></form></section>
 <section class="pagehead"><h2 class="head" data-split>{a.title}</h2><p class="sub" data-r>{a.sub}</p></section>
 <section class="how atlas" data-s="0"><div class="stage" aria-hidden="true">
 <svg viewBox="0 0 300 420"><rect class="park" x="20" y="250" width="90" height="70" rx="18" /><ellipse class="lake" cx="235" cy="90" rx="50" ry="32" /><path class="st" d="M0 120H300M0 330H300M90 0V420M210 0V420" /><path id="gh" d={D} /><path id="rt" d={D} /><g id="pins"></g><g id="dot"><rect class="ph" x="-8" y="-13" width="16" height="26" rx="4" /><rect class="lb" x="-5" y="-2" width="10" height="6" rx="1.5" /></g></svg></div>
-<div>{a.stops.map((s, i) => <article class="step" data-i={i}><span>{i + 1}</span><h2>{s.h}</h2><p>{s.p}</p><p class="tip">{s.tip}</p></article>)}</div></section>
+<div>{a.stops.map((st, i) => <article class="step" data-i={i}><span>{i + 1}</span><h2>{st.h}</h2><p>{st.p}</p><p class="tip">{st.tip}</p></article>)}</div></section>
 <section class="feats">{h.feats.map((f) => <article data-r><h2>{f.h}</h2><p>{f.p}</p></article>)}</section>
 <section class="stat"><strong data-r>{h.stat.n}</strong><p data-r>{h.stat.p}</p></section>
-<section class="band"><h2 class="head" data-split>{h.band.h}</h2><p data-r>{h.band.p}</p><a class="btn mag" href="/order/">{h.band.cta}</a></section>
+<section class="proofw"><h2 class="head" data-split>{C.proof.h}</h2><div class="proof">{C.proof.items.map(([q, n]) => <blockquote data-r><p>{q}</p><footer>{n}</footer></blockquote>)}</div></section>
+<section class="band"><h2 class="head" data-split>{h.band.h}</h2><p data-r>{h.band.p}</p><a class="btn mag" href="#shop">{h.band.cta}</a></section>
 </Base>

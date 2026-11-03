@@ -18,4 +18,6 @@ Vercel detects Astro automatically (build: `npm run build`, output: `dist`).
 - Checkout is a demo. Connect PayPal in the `order()` function in `src/scripts/client.js` (marked comment).
 - Once you have a domain, add `site: 'https://your-domain.com'` to `astro.config.mjs`.
 
+PayPal: set `paypalClientId` in `src/data/content.js` to your live client ID (from developer.paypal.com). Each order then shows PayPal buttons; the trusted number is saved in the PayPal transaction description and custom ID, and the shipping address goes with it. Test in sandbox first.
+
 Note: written without being installed or built. Run `npm run build` once and fix anything it reports.

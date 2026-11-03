@@ -17,7 +17,9 @@ const telPat = String.raw`\(\d{3}\) \d{3}-\d{4}`, zipPat = String.raw`\d{5}`;
 <div class="g3"><label class="f">{o.city}<input name="city" type="text" required /></label><label class="f">{o.state}<input name="state" type="text" required maxlength="2" autocomplete="address-level1" /></label><label class="f">{o.zip}<input name="zip" type="text" required inputmode="numeric" pattern={zipPat} maxlength="5" autocomplete="postal-code" /></label></div>
 <p><b>{o.total}: <span id="tot"></span></b></p>
 <button class="btn mag" type="submit">{o.pay}</button>
+<div id="pp"></div>
 <small class="h">{o.demoNote} {C.priceNote}</small>
+<ul class="tr">{C.trust.map((t) => <li>{t}</li>)}</ul>
 </form>
 <aside class="prev"><h2>{o.prev}</h2><Label /></aside>
 <div id="done" style="grid-column:1/-1" role="status"></div>

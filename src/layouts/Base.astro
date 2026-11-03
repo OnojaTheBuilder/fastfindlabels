@@ -21,6 +21,7 @@ const full = title === C.brand ? C.brand : `${title} | ${C.brand}`;
 <nav id="nav" aria-label="Main">{C.nav.map(([k, l]) => <a data-k={k} href={href(k)} aria-current={cur === href(k).replace(/\/$/, '') ? 'page' : undefined}>{l}</a>)}</nav></header>
 <main id="main" tabindex="-1"><slot /></main>
 <footer id="foot"><span>{C.foot}</span></footer>
+{cur !== '/order' && <a class="btn buybar" href="/#shop">Get my labels from ${Math.min(...C.price.map((p) => p.p))}</a>}
 <script>import '../scripts/client.js';</script>
 </body>
 </html>
