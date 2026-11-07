@@ -10,10 +10,11 @@ const telPat = String.raw`\(\d{3}\) \d{3}-\d{4}`, zipPat = String.raw`\d{5}`;
 <section class="order">
 <form id="of">
 <fieldset><legend>{o.packs}</legend>{C.price.map((p, i) => <label class="pk"><input type="radio" name="pack" value={i} checked={i === 0} /> <span><b>${p.p}</b> {p.n}</span></label>)}</fieldset>
-<label class="f">{o.tel}<input id="tn" name="tel" type="tel" inputmode="tel" required pattern={telPat} placeholder="(555) 010-2030" autocomplete="off" /><small class="h">{o.telHint}</small></label>
+<label class="f">{o.tel}<input id="tn" name="tel" type="tel" inputmode="tel" required pattern={telPat} placeholder="(555) 555-5555" autocomplete="off" /><small class="h" set:html={o.telHint}></small></label>
 <label class="f">{o.name}<input name="name" type="text" required autocomplete="name" /></label>
 <label class="f">{o.email}<input name="email" type="email" required autocomplete="email" /></label>
 <label class="f">{o.street}<input name="street" type="text" required autocomplete="street-address" /></label>
+<label class="f">{o.apt}<input name="apt" type="text" autocomplete="address-line2" /></label>
 <div class="g3"><label class="f">{o.city}<input name="city" type="text" required /></label><label class="f">{o.state}<input name="state" type="text" required maxlength="2" autocomplete="address-level1" /></label><label class="f">{o.zip}<input name="zip" type="text" required inputmode="numeric" pattern={zipPat} maxlength="5" autocomplete="postal-code" /></label></div>
 <p><b>{o.total}: <span id="tot"></span></b></p>
 <button class="btn mag" type="submit">{o.pay}</button>
